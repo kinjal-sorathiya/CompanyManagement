@@ -1,0 +1,16 @@
+
+    form{
+        width:50%;
+        margin-left: 350px;
+    }
+    .submit_button{
+    margin-left:250px;
+    align:center;
+    }
+    body{
+    background-color: gray;
+    }
+    .button_add{
+    margin-bottom:30px;
+
+    }

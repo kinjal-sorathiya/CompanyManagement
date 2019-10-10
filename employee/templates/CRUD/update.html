@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block title%} update employee {% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<form action="" method="post" novalidate> {% csrf_token %}
+    {{ empForm | crispy }}
+   <a href="/index"></a> <input type="submit" value="update" class="btn btn-success"/>
+</form>
+
+{% endblock %}

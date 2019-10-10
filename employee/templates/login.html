@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %} Login  {% endblock %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<!--<h1 align="center" xmlns="http://www.w3.org/1999/html"> Login </h1>-->
+    <h3> {{ isValidUser }}</h3>
+    <form action="" method="post" novalidate> {% csrf_token %}
+    {{ form | crispy }}
+    <p>Don't have an account?click <a href=Signup>Here</a></p>
+
+    <input type="submit" class="btn btn-success" value="Login"/>
+
+    </form>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% load staticfiles %}
+
+{% block title%}  employee list {% endblock %}
+{% block content %}
+
+<a href=/create button type="button" class="btn btn-primary btn-lg pull-right button_add">ADD Employee</button></a>
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Emp FirstName</th>
+          <th>Emp LastName</th>
+          <th>Emp Address</th>
+          <th>Emp DOB</th>
+          <th>Emp Mobilenumber</th>
+          <th>Emp City</th>
+          <th>ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for row in data %}
+    <tr>
+        <td>{{ row.id }}</td>
+         <td>{{ row.emp_Firstname }}</td>
+        <td>{{ row.emp_lastname }}</td>
+        <td>{{ row.emp_Address }}</td>
+        <td>{{ row.emp_DOB }}</td>
+        <td>{{ row.emp_Mobilenumber }}</td>
+        <td>{{ row.emp_city }}</td>
+        <td>
+            <a href="/update?id={{row.id}}"  class="btn btn-primary btn-xs">UPDATE</a>
+            <a href="/delete?id={{row.id}}" onclick="return deleteItem()" class="btn btn-warning btn-xs">DELETE</a>
+
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+<script>
+    function deleteItem(){
+    if(confirm("Are you sure to delete this item?"))
+    return true;
+    else return false;
+    }
+
+</script>
+
+{% endblock %}

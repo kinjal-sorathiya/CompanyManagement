@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block title %} Registration {% endblock %}
+{% block content %}
+
+       {% if request.user.username %}
+             <h3><a href="/index"></a> WelCome: {{request.user.username}}</a> </h3>
+            <h4><a href="/Logout">logout(  {{request.user.username}} )</a> </h4>
+       {% else %}
+       <h4><a href="/Login">Login again</a> </h4>
+       {% endif %}
+
+{% endblock %}

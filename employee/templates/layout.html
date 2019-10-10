@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %} {% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}">
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Mind Bowser</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Our Projects <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Web developing</a></li>
+          <li><a href="#">Machine learning</a></li>
+          <li><a href="#">Intelligent Arificial</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {% if request.user.username %}
+      <li><a href=/Logout><span class="glyphicon glyphicon-user"></span> logout({{ request.user.username }})</a></li>
+
+
+      {% else %}
+      <li><a href=/Signup><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href=/Login><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+<!--      <li><a href=/home><span class="glyphicon glyphicon-log-in"></span> Home </a></li>-->
+
+      {% endif %}
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  {% block content %}
+    {% endblock %}
+
+</div>
+
+</body>
+</html>
